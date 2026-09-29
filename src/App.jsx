@@ -1,15 +1,8 @@
+import React from 'react';
+import HomePage from './pages/HomePage';
 
-import './App.css'
-import TaskForm from './components/TaskForm'
 function App() {
-  
-
-  return (
-    <>
-      12314
-      
-    </>
-  )
+  return <HomePage />;
 }
 
-export default App
+export default App;
