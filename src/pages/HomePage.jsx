@@ -4,18 +4,22 @@ import TaskList from '../components/TaskList';
 
 const HomePage = () => {
   // 1. READ / LISTELEME: Başlangıçta verileri LocalStorage'dan yüklüyoruz
-  const [tasks, setTasks] = useState(() => {
+ const [tasks, setTasks] = useState(() => {
+  try {
     const savedTasks = localStorage.getItem('taskflow_tasks');
     return savedTasks ? JSON.parse(savedTasks) : [];
-  });
-  
-  // Düzenlenmekte olan görevi tutan state
-  const [editingTask, setEditingTask] = useState(null);
+  } catch (error) {
+    console.error("LocalStorage okuma hatası:", error);
+    return [];
+  }
+});
 
-  // Veriler her değiştiğinde LocalStorage'a otomatik kaydediyoruz[cite: 1]
-  useEffect(() => {
-    localStorage.setItem('taskflow_tasks', JSON.stringify(tasks));
-  }, [tasks]);
+const [editingTask, setEditingTask] = useState(null);
+
+// 2. Yalnızca tasks GERÇEKTEN değiştiğinde kaydetme işlemi yapıyoruz
+useEffect(() => {
+  localStorage.setItem('taskflow_tasks', JSON.stringify(tasks));
+}, [tasks]);
 
   // 2. CREATE (Ekleme) & UPDATE (Güncelleme)[cite: 1]
   const handleSaveTask = (task) => {

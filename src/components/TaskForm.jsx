@@ -21,7 +21,6 @@ const TaskForm = ({ onSaveTask, editingTask, onCancelEdit }) => {
     e.preventDefault();
     if (!title.trim()) return;
 
-    // İşlemleri handleSubmit FONKSİYONUNUN İÇİNDE yapıyoruz
     onSaveTask({
       id: editingTask ? editingTask.id : Date.now().toString(),
       title,
@@ -33,7 +32,7 @@ const TaskForm = ({ onSaveTask, editingTask, onCancelEdit }) => {
     setTitle("");
     setCategory("İş");
     setPriority("Orta");
-  }; // <-- Süslü parantez burada kapanmalı!
+  }; 
 
   return (
     <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md mb-8">
