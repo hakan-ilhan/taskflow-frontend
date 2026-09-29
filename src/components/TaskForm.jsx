@@ -1,51 +1,49 @@
 import React, { useState, useEffect } from "react";
 
-const TaskForm = ({ onSaveTask, editingTask, onCancelEdit}) => {
-    const [title, setTitle] = useState("");
-    const [category, setCategory] = useState("İş");
-    const [priority, setPriority] = useState("Orta");
+const TaskForm = ({ onSaveTask, editingTask, onCancelEdit }) => {
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("İş");
+  const [priority, setPriority] = useState("Orta");
 
-
-    useEffect(() => {
-        if (editingTask) {
-            setTitle(editingTask.title)
-            setCategory(editingTask.category)
-            setPriority(editingTask.priority)
-        } else {
-            setTitle("");
-            setCategory("İş")
-            setPriority("Orta");
-        }
-
-    },[editingTask])
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!title.trim()) return;
+  useEffect(() => {
+    if (editingTask) {
+      setTitle(editingTask.title);
+      setCategory(editingTask.category);
+      setPriority(editingTask.priority);
+    } else {
+      setTitle("");
+      setCategory("İş");
+      setPriority("Orta");
     }
+  }, [editingTask]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!title.trim()) return;
+
+    // İşlemleri handleSubmit FONKSİYONUNUN İÇİNDE yapıyoruz
     onSaveTask({
-        id: editingTask ? editingTask.id : Date.now().toString(),
-        title,
-        category,
-        priority,
-        completed: editingTask ? editingTask.completed : false,
-    })
+      id: editingTask ? editingTask.id : Date.now().toString(),
+      title,
+      category,
+      priority,
+      completed: editingTask ? editingTask.completed : false,
+    });
 
     setTitle("");
-    setCategory("İş")
+    setCategory("İş");
     setPriority("Orta");
+  }; // <-- Süslü parantez burada kapanmalı!
 
-    return (
-       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md mb-8">
-        <h2 className="text-xl font-bold mb-4 text-slate-800">
+  return (
+    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md mb-8">
+      <h2 className="text-xl font-bold mb-4 text-slate-800">
         {editingTask ? 'Görev Düzenle' : 'Yeni Görev Ekle'}
-        </h2>
+      </h2>
       
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Görev Başlığı Input */}
-            <input
+        <input
           type="text"
           placeholder="Görev başlığı giriniz..."
           value={title}
@@ -97,8 +95,6 @@ const TaskForm = ({ onSaveTask, editingTask, onCancelEdit}) => {
       </div>
     </form>
   );
-
-}
-
+};
 
 export default TaskForm;
