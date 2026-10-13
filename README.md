@@ -1,16 +1,32 @@
-# React + Vite
+# 🚀 TaskFlow - Görev ve Proje Yönetim Sistemi (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+TaskFlow, kullanıcıların günlük görevlerini kolayca oluşturup yönetebileceği, öncelik ve kategori bazlı takip yapabileceği modern bir React uygulamasıdır.
 
-Currently, two official plugins are available:
+🌐 **Canlı Demo:** [https://graceful-hamster-b60b69.netlify.app]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🛠️ Kullanılan Teknolojiler ve Araçlar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **ReactJS (Vite)** — Bileşen mimarisi ve hızlı UI geliştirme
+- **Tailwind CSS** — Modern ve esnek arayüz tasarımı
+- **LocalStorage API** — Verilerin tarayıcıda kalıcı olarak saklanması
+- **Netlify** — Canlı yayın / Dağıtım (Deployment)
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## ✨ Öne Çıkan Özellikler (CRUD)
+
+- 📝 **Create:** Yeni görev oluşturma (Başlık, Kategori ve Öncelik seviyesi seçimi ile)
+- 📋 **Read:** Görevleri listeleme ve durumlarına göre görselleştirme (Rozetler & Öncelik renkleri)
+- ✏️ **Update:** Mevcut görevleri düzenleme ve tamamlandı/yapılacak durumunu değiştirme
+- 🗑️ **Delete:** Görev silme işlemi
+- 💾 **Kalıcılık:** Sayfa yenilense de LocalStorage entegrasyonu sayesinde veriler kaybolmaz
+
+---
+
+## 🚀 Yerel Kurulum (Local Setup)
+
+1. Depoyu klonlayın:
+   ```bash
+   git clone [https://github.com/hakan-ilhan/taskflow-frontend.git](https://github.com/hakan-ilhan/taskflow-frontend.git)
